@@ -15,10 +15,7 @@ header{
     justify-content: flex-end;
     background-color: var(--secondary-color);
 }
-#main-seats{
-    width: 100vh;
-    height : 50vh;
-} 
+
 .search{
     background-color: transparent;
     border: 2px solid white;
