@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
-
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Teko:wght@800&display=swap');:root{
     --primary-color: #22254b;
     --secondary-color:#373b69;
 }
@@ -24,6 +23,7 @@ header{
     font-size: 1rem;
     padding: 0.5rem 1rem;
     color: white;
+    margin-top: 21px;
 }
 .search::placeholder{
     color: #7378c5;
@@ -47,6 +47,7 @@ main{
     border-radius: 3px;
     position: relative;
     overflow: hidden;
+    margin-left: 150px;
 
 }
 .movie  img{
@@ -83,7 +84,7 @@ font-weight: bold;
 }
 
 .overview{
-    background-color: white;
+    background-color: rgb(255, 242, 235);
     padding: 2rem;
     position: absolute;
     left: 0;
@@ -96,4 +97,14 @@ font-weight: bold;
 
 .movie:hover .overview{
     transform: translateY(0);
+}
+
+#title{
+    padding-right: 350px;
+    letter-spacing: 5px;
+    color: #66FCF1;
+    font-size: 60px;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 0px;
+    text-decoration: underline;
 }
