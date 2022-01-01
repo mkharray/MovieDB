@@ -64,3 +64,13 @@ form.addEventListener('submit', (e) =>{
         window.location.reload();
     }
 })
+
+const sort_by_vote = document.getElementById('sort_by_vote');
+const pop = document.getElementById('pop');
+
+const new_url = "https://api.themoviedb.org/3/discover/movie?api_key=cad293453ae8fafb1b5a3452cd80e2d7&sort_by=vote_average.desc&page=1";
+
+sort_by_vote.addEventListener('click', (e)=>{
+    console.log("JE::");
+    getMovies(new_url)
+})
