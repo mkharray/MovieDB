@@ -23,7 +23,7 @@ header{
     font-size: 1rem;
     padding: 0.5rem 1rem;
     color: white;
-    margin-top: 21px;
+    margin-top: 40px;
 }
 .search::placeholder{
     color: #7378c5;
@@ -103,7 +103,7 @@ font-weight: bold;
     padding-right: 350px;
     letter-spacing: 5px;
     color: #66FCF1;
-    font-size: 60px;
+    font-size: 50px;
     font-family: 'Nunito', sans-serif;
     margin-bottom: 0px;
     text-decoration: underline;
