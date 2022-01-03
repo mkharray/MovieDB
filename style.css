@@ -107,4 +107,5 @@ font-weight: bold;
     font-family: 'Nunito', sans-serif;
     margin-bottom: 0px;
     text-decoration: underline;
+    cursor: pointer;
 }
