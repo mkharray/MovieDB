@@ -1,8 +1,7 @@
-const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=cad293453ae8fafb1b5a3452cd80e2d7&page=1';
+let page = 1;
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=cad293453ae8fafb1b5a3452cd80e2d7&page=' + page;
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=cad293453ae8fafb1b5a3452cd80e2d7&query="';
-
-const page = "1";
 
 const main = document.getElementById("main");
 const form = document.getElementById('form');
@@ -74,7 +73,7 @@ const sort_by_popularity = document.getElementById('sort_by_popularity');
 const new_url = "https://api.themoviedb.org/3/discover/movie?api_key=cad293453ae8fafb1b5a3452cd80e2d7";
 
 sort_by_vote.addEventListener('click', (e)=>{
-    getMovies(new_url + "&sort_by=vote_average.desc&page=2")
+    getMovies(new_url + "&sort_by=vote_average.desc&page=1")
 })
 
 sort_by_popularity.addEventListener('click', (e)=>{
@@ -85,3 +84,12 @@ const title = document.getElementById('title');
 title.addEventListener('click', (e) =>{
     getMovies(API_URL);
 })
+
+const next_page = document.getElementsByClassName(".next_page");
+next_page.addEventListener("click",(e)=>{
+    page++;
+    window.reload
+    getMovies(API_URL);
+    window.location.reload();
+})
+console.log(next_page);
