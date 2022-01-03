@@ -1,13 +1,15 @@
 let page = 1;
-const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=cad293453ae8fafb1b5a3452cd80e2d7&page=' + page;
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=cad293453ae8fafb1b5a3452cd80e2d7&page=';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=cad293453ae8fafb1b5a3452cd80e2d7&query="';
+let CURR_URL = API_URL;
 
 const main = document.getElementById("main");
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 
-getMovies(API_URL);
+
+getMovies(API_URL+page);                                                //Home Page
 
 async function getMovies(url){
     const res = await fetch(url);
@@ -42,6 +44,7 @@ function showMovies(movies){
     })
 }
 
+
 function getColorByRate(vote){
 if(vote >= 8)
 return 'green';
@@ -51,14 +54,15 @@ else
 return 'red';
 }
 
+
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
     const searchTerm  = search.value;
-
+    
     if(searchTerm && searchTerm !== ' ')//to check if the given term exists
     {
         getMovies(SEARCH_API + searchTerm);
-
+        CURR_URL = SEARCH_API + searchTerm +"&page=";
         searchTerm.value = ' ';
         
     }else{
@@ -66,30 +70,41 @@ form.addEventListener('submit', (e) =>{
     }
 })
 
-
-const sort_by_vote = document.getElementById('sort_by_vote');
-const sort_by_popularity = document.getElementById('sort_by_popularity');
+let sort_by_vote_count =  document.getElementById('sort_by_vote_count');
+let sort_by_vote = document.getElementById('sort_by_vote');
+let sort_by_popularity = document.getElementById('sort_by_popularity');
 
 const new_url = "https://api.themoviedb.org/3/discover/movie?api_key=cad293453ae8fafb1b5a3452cd80e2d7";
 
 sort_by_vote.addEventListener('click', (e)=>{
-    getMovies(new_url + "&sort_by=vote_average.desc&page=1")
+    page = 1;
+    getMovies(new_url + "&sort_by=vote_average.desc&page=")
+    CURR_URL = new_url+"&sort_by=vote_average.desc&page=";
 })
 
 sort_by_popularity.addEventListener('click', (e)=>{
-    getMovies(new_url + "&sort_by=vote_average.desc&page=1")
+    page = 1;
+    getMovies(new_url + "&sort_by=popularity.desc&page=")
+    CURR_URL = new_url+ "&sort_by=popularity.desc&page=";
+})
+
+sort_by_vote_count.addEventListener('click', (e)=>{
+    page = 1;
+    getMovies(new_url + "&sort_by=vote_count.desc&page=")
+    CURR_URL = new_url+"&sort_by=vote_count.desc&page=";
 })
 
 const title = document.getElementById('title');
+page = 1;
 title.addEventListener('click', (e) =>{
     getMovies(API_URL);
 })
 
-const next_page = document.getElementsByClassName(".next_page");
+
+const next_page = document.getElementById("next");
 next_page.addEventListener("click",(e)=>{
+    e.preventDefault();
     page++;
-    window.reload
-    getMovies(API_URL);
-    window.location.reload();
+    getMovies(CURR_URL+page);
+    console.log(page);
 })
-console.log(next_page);
