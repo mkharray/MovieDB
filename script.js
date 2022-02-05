@@ -29,8 +29,6 @@ function showMovies(movies){
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = ` 
-        
-        <img src="${IMG_PATH + poster_path}" >
     <div id="movie-info">
         <h3>${title}</h3>
         <span class="${(getColorByRate(vote_average))}" id = "rating">${(vote_average)}</span>
